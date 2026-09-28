@@ -1,0 +1,17 @@
+# Screenshots Checklist for ServiceNow Project Submission:
+# Milestone 1:
+# - 01_custom_table_schema.png            (Target table u_employee_test dictionary columns)
+# - 02_form_layout_fields.png             (Form designer/view with all 5 custom fields)
+#
+# Milestone 2:
+# - 03_load_data_import_set.png           (Load Data complete screen with 10 records)
+# - 04_transform_map_field_mapping.png    (Transform map field maps & mapping assist)
+#
+# Milestone 3:
+# - 05_transform_execution_complete.png   (Initial transform execution: 10 inserts, 0 errors)
+# - 06_target_table_records_verified.png  (Target table u_employee_test.list with 10 records)
+# - 07_transform_map_coalesce.png         (Field Map showing u_employee_id Coalesce = true)
+# - 08_coalesce_update_transform_history.png (Transform history: 2 inserts, 2 updates)
+#
+# Milestone 4:
+# - 09_employee_analytics_dashboard.png   (Executive dashboard with 3 embedded widgets)
