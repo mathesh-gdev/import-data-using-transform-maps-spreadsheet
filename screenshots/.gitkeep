@@ -15,5 +15,7 @@
 # - 09_coalesce_transform_results.png      (Coalesce transform execution metrics)
 # - 10_updated_target_records_verified.png (Final target table list with 12 verified records)
 #
-# Milestone 4 (Analytics Suite & Executive Dashboard - Upcoming):
-# - 11_employee_analytics_dashboard.png    (Executive dashboard with 3 embedded reports)
+# Milestone 4 (Analytics Suite & Executive Dashboard):
+# - 11_report_employees_by_department.png  (Analytics Report 1: Employees by Department Pie Chart)
+# - 12_report_employees_by_location.png    (Analytics Report 2: Employees by Location Bar Chart)
+# - 13_employee_analytics_dashboard.png    (Executive Dashboard: Employee Analytics Dashboards)

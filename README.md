@@ -3,7 +3,7 @@
 [![Platform: Naan Mudhalvan - SkillWallet](https://img.shields.io/badge/Platform-Naan%20Mudhalvan%20%7C%20SkillWallet-0056D2?style=for-the-badge)](https://skillwallet.naanmudhalvan.tn.gov.in/)
 [![Track: ServiceNow System Administrator](https://img.shields.io/badge/Track-ServiceNow%20System%20Administrator-81B5A1?style=for-the-badge&logo=servicenow)](https://www.servicenow.com/)
 [![GitHub: Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/mathesh-gdev/import-data-using-transform-maps-spreadsheet)
-[![Progress: 67% (Milestones 1, 2 & 3 Complete)](https://img.shields.io/badge/Progress-67%25%20Completed-2ea44f?style=for-the-badge)](#)
+[![Progress: 90% (All Tasks in Review)](https://img.shields.io/badge/Progress-90%25%20(Under%20Review)-ff9900?style=for-the-badge)](#)
 [![Scope: Global](https://img.shields.io/badge/Scope-Global-blueviolet?style=for-the-badge)](#)
 
 ---
@@ -12,34 +12,35 @@
 
 This repository documents the implementation of the ServiceNow capstone project: **"Import Data using Transform Maps (Spreadsheet)"**, developed under the **Naan Mudhalvan / SkillWallet** ServiceNow System Administrator program.
 
-The project demonstrates automated enterprise data migration into ServiceNow Personal Developer Instance (PDI) using **Import Sets** and **Transform Maps**. This report captures the successful completion of **Milestones 1, 2, and 3 (67% Project Progress)**:
-1. Target database architecture and form view design.
-2. Ingestion of raw records into an intermediate staging table.
-3. Transform Map configuration with Auto Map and Mapping Assist.
-4. Initial transformation execution and baseline record verification.
-5. Implementation of **Coalesce** matching logic on `u_employee_id`.
-6. Delta stress-testing with updated and new employee records, confirming deduplication and data integrity.
+The project demonstrates an automated enterprise data migration and analytics pipeline within a **ServiceNow Personal Developer Instance (PDI)** using **Import Sets**, **Transform Maps**, and **Performance Analytics/Dashboards**. 
+
+All **4 Milestones** comprising the full **9 SkillWallet Stories** have been executed and transitioned to **Review (90% Progress)**:
+1. **Target Database Architecture:** Custom table definition (`u_employee_test`) and form design.
+2. **Staging & Ingestion:** External tabular data staged via Import Sets (`u_employee_import`).
+3. **Transform Engine & Mapping:** Field reconciliation using Auto Map and Mapping Assist (`u_first_name` ➔ `u_employee_name`).
+4. **Data Deduplication via Coalesce:** Primary key matching on `u_employee_id` with delta stress-testing (validating inserts and in-place updates).
+5. **Business Intelligence Suite:** 3 custom operational analytics reports embedded into an interactive Executive Dashboard (`Employee Analytics Dashboards`).
 
 ---
 
-## 👥 Team Work Breakdown Structure (Current Progress)
+## 👥 Team Work Breakdown Structure (SkillWallet Kanban Status)
 
 | Member | Role | Milestone | SkillWallet Stories Owned | Est. Duration | Status |
 | :--- | :--- | :--- | :--- | :---: | :---: |
-| **Daniel Jeewins J** | Schema & System Specialist | **Milestone 1:** Foundation & Target Schema | • Story 1: Creation Of Spreadsheet<br>• Story 2: Creation of Tables | 4h 20m | `COMPLETED` ✅ |
-| **Vishal K** | Import Set & Mapping Specialist | **Milestone 2:** Staging & Transform Mapping | • Story 3: Create Importset Table<br>• Story 4: Create Transform Map | 6h 00m | `COMPLETED` ✅ |
-| **Mathesh G** *(Lead)* | Team Lead & Integration Specialist | **Milestone 3:** Execution, Coalesce & Stress Validation | • Story 5: Transform Data & Validate<br>• Story 6: Enable Coalesce to Avoid Duplicates<br>• Story 7: Inserting New Data In Excel Format | 10h 00m | `COMPLETED` ✅ |
-| **Manikandan S** | Analytics & Dashboard Specialist | **Milestone 4:** Reporting Suite & Dashboard | • Story 8: Report 1 (3 Analytics Reports)<br>• Story 9: Adding Reports to Dashboard | 6h 00m | `IN PROGRESS` ⏳ |
+| **Daniel Jeewins J** | Schema & System Specialist | **Milestone 1:** Foundation & Target Schema | • Story 1: Creation Of Spreadsheet<br>• Story 2: Creation of Tables | 4h 20m | `UNDER REVIEW` 🔍 |
+| **Vishal K** | Import Set & Mapping Specialist | **Milestone 2:** Staging & Transform Mapping | • Story 3: Create Importset Table<br>• Story 4: Create Transform Map | 6h 00m | `UNDER REVIEW` 🔍 |
+| **Mathesh G** *(Lead)* | Team Lead & Integration Specialist | **Milestone 3:** Execution, Coalesce & Stress Validation | • Story 5: Transform Data & Validate<br>• Story 6: Enable Coalesce to Avoid Duplicates<br>• Story 7: Inserting New Data In Excel Format | 10h 00m | `UNDER REVIEW` 🔍 |
+| **Manikandan S** | Analytics & Dashboard Specialist | **Milestone 4:** Reporting Suite & Dashboard | • Story 8: Report 1 (3 Analytics Reports)<br>• Story 9: Adding Reports to Dashboard | 6h 00m | `UNDER REVIEW` 🔍 |
 
 ---
 
-## 🏗️ Architecture Workflow (Milestones 1, 2 & 3)
+## 🏗️ End-to-End Architecture Workflow
 
 ```mermaid
 flowchart TD
     subgraph Data Sources ["📁 Data Sources"]
         DS1["Initial Spreadsheet<br/>(10 Banking Records)"]
-        DS2["Updated Spreadsheet<br/>(Updates + New Inserts)"]
+        DS2["Updated Spreadsheet<br/>(Delta Updates + Inserts)"]
     end
 
     subgraph Staging ["⚙️ Ingestion & Staging"]
@@ -60,13 +61,26 @@ flowchart TD
     end
 
     subgraph Production ["💾 ServiceNow Target Table"]
-        TT["Custom Target Table<br/>[u_employee_test]<br/>(Active Personnel Records)"]
+        TT["Custom Target Table<br/>[u_employee_test]<br/>(12 Active Personnel Records)"]
         COAL -->|No Match Found| INS["INSERT Record<br/>(New Employees)"]
         COAL -->|Match Found| UPD["UPDATE Record<br/>(In-Place Modifications)"]
-        COAL -->|Exact Match & No Change| IGN["IGNORE Record<br/>(Idempotent Run)"]
+        COAL -->|Identical Data| IGN["IGNORE Record<br/>(Idempotent Run)"]
         INS --> TT
         UPD --> TT
         IGN --> TT
+    end
+
+    subgraph Analytics ["📊 Analytics Suite & Dashboard"]
+        R1["Report 1: Department (Pie Chart)"]
+        R2["Report 2: Location (Bar Chart)"]
+        R3["Report 3: Personnel List View"]
+        DASH["Executive Dashboard<br/>[Employee Analytics Dashboards]"]
+        TT --> R1
+        TT --> R2
+        TT --> R3
+        R1 --> DASH
+        R2 --> DASH
+        R3 --> DASH
     end
 ```
 
@@ -76,9 +90,8 @@ flowchart TD
 
 ```text
 .
-├── README.md                               # Project documentation (Milestones 1, 2 & 3 complete)
+├── README.md                               # Comprehensive capstone report & evaluator guide
 ├── .gitignore                              # Clean ignore rules for temporary & OS files
-├── ServiceNow_Transform_Maps_Project_Playbook.docx # Official project playbook & team guide
 ├── dataset/
 │   └── Sample Spreadsheet.xlsx             # Source Excel dataset (updated with 12 employee records)
 └── screenshots/
@@ -91,12 +104,15 @@ flowchart TD
     ├── 07_coalesce_enabled.png             # Milestone 3: Coalesce flag enabled on u_employee_id
     ├── 08_new_data_import_loaded.png       # Milestone 3: Load Data for updated spreadsheet
     ├── 09_coalesce_transform_results.png   # Milestone 3: Transform execution results
-    └── 10_updated_target_records_verified.png # Milestone 3: Final verified records (12 rows)
+    ├── 10_updated_target_records_verified.png # Milestone 3: Final verified records (12 rows)
+    ├── 11_report_employees_by_department.png # Milestone 4: Employees by Department Pie Chart
+    ├── 12_report_employees_by_location.png   # Milestone 4: Employees by Location Bar Chart
+    └── 13_employee_analytics_dashboard.png # Milestone 4: Executive Employee Analytics Dashboard
 ```
 
 ---
 
-## 📑 Completed Milestone Implementations
+## 📑 Milestone Implementation Details
 
 ### Milestone 1: Foundation & Target Schema
 **Owner:** `Daniel Jeewins J` | **SkillWallet Stories:** `Creation Of Spreadsheet`, `Creation of Tables`
@@ -233,16 +249,34 @@ flowchart TD
 
 ---
 
-## ⏳ Upcoming Milestone: Milestone 4 (Analytics & Dashboard)
-**Lead:** `Manikandan S` | **Target:** 100% Project Completion
+### Milestone 4: Reporting Suite & Executive Dashboard
+**Owner:** `Manikandan S` | **SkillWallet Stories:** `Report 1`, `Adding Reports to Dashboard`
 
-- **Story 8 (Report 1):** Create 3 Business Intelligence Reports:
-  1. *Employees by Department* (Pie Chart grouped by `u_department`).
-  2. *Employees by Location* (Bar Chart grouped by `u_location`).
-  3. *Employee List Report* (Multi-column operational table).
-- **Story 9 (Adding Reports to Dashboard):**
-  - Create executive dashboard `Employee Analytics Dashboards` (`pa_dashboards.list`).
-  - Embed all 3 report widgets for consolidated executive decision-making.
+#### 1. Business Intelligence Reports Configuration (Story 8)
+Configured three specialized analytics reports on table `u_employee_test` via **Reports > Create New** (`sys_report_template.do`):
+
+| Report Name | Chart Type | Data Source | Group By / Aggregation | Analytical Purpose |
+| :--- | :--- | :--- | :--- | :--- |
+| **Employees by Department** | Pie Chart | `u_employee_test` | Group by: `u_department` (Count) | Visualizes workforce allocation across organizational business units |
+| **Employees by Location** | Bar Chart | `u_employee_test` | Group by: `u_location` (Count) | Highlights geographical distribution across regional offices |
+| **Employee List Report** | List View | `u_employee_test` | Columns: ID, Name, Email, Dept, Location | Delivers an operational, sortable roster table view |
+
+![Employees by Department](screenshots/11_report_employees_by_department.png)
+*Figure 4.1: Report 1 - Employees by Department (Pie Chart visualization).*
+
+![Employees by Location](screenshots/12_report_employees_by_location.png)
+*Figure 4.2: Report 2 - Employees by Location (Bar Chart distribution).*
+
+#### 2. Executive Dashboard Assembly & Embedding (Story 9)
+- **Navigation:** Self-Service > Dashboards (or `pa_dashboards.list`) > New.
+- **Dashboard Name:** `Employee Analytics Dashboards`.
+- **Layout Architecture:**
+  - **Top-Left Container:** `Employees by Department` (Pie Chart).
+  - **Top-Right Container:** `Employees by Location` (Bar Chart).
+  - **Bottom Span Container:** `Employee List Report` (Interactive Multi-column Table).
+
+![Executive Dashboard](screenshots/13_employee_analytics_dashboard.png)
+*Figure 4.3: Executive Employee Analytics Dashboard consolidating all 3 reports.*
 
 ---
 
@@ -252,5 +286,6 @@ flowchart TD
 | :--- | :--- |
 | 💻 **GitHub Repository** | [mathesh-gdev/import-data-using-transform-maps-spreadsheet](https://github.com/mathesh-gdev/import-data-using-transform-maps-spreadsheet) |
 | 📊 **Source Dataset (Updated - 12 Rows)** | [dataset/Sample Spreadsheet.xlsx](dataset/Sample%20Spreadsheet.xlsx) |
+
 ---
 *Created for the **Naan Mudhalvan - SkillWallet** Initiative \| ServiceNow System Administrator Track*
