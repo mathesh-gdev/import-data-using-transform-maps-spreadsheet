@@ -281,7 +281,6 @@ This checklist summarizes the deliverables completed for evaluation:
 
 | Deliverable | Link |
 | :--- | :--- |
-| Project Demo Video | [Video Walkthrough Link (Placeholder)](https://youtu.be/placeholder) |
 | GitHub Repository | [GitHub Repository](https://github.com/mathesh-gdev/import-data-using-transform-maps-spreadsheet) |
 | Source Dataset | [dataset/Sample Spreadsheet.xlsx](dataset/Sample%20Spreadsheet.xlsx) |
 
