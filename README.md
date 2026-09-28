@@ -280,10 +280,43 @@ Configured three specialized analytics reports on table `u_employee_test` via **
 
 ---
 
+## 🎬 3-Minute Video Demo Presentation Script
+
+For faculty evaluation and video submission (via Loom / YouTube), follow this structured screen walkthrough:
+
+| Timestamp | Topic | Narration & Screen Walkthrough Action |
+| :---: | :--- | :--- |
+| **0:00 - 0:30** | **Intro & SkillWallet Kanban** | *"Hi, I am Mathesh G, Team Lead. This is our ServiceNow capstone project: Import Data using Transform Maps. Our team includes Daniel, Vishal, and Manikandan."*<br>• Display SkillWallet Kanban board with all 9 stories in `REVIEW / COMPLETED` status. |
+| **0:30 - 1:00** | **Spreadsheet & Target Table** | *"Daniel authored our baseline dataset and constructed target table `u_employee_test`."*<br>• Show `Sample Spreadsheet.xlsx` in Excel.<br>• Switch to ServiceNow and display `u_employee_test.list` with all 5 columns populated. |
+| **1:00 - 1:45** | **Transform Map & Coalesce** | *"Vishal set up staging table `u_employee_import` and the Transform Map with Mapping Assist for name fields."*<br>• Open `Sample Spreadsheet Import` Transform Map.<br>• Highlight `Field Maps` and emphasize `u_employee_id` with `Coalesce = true` for automated deduplication. |
+| **1:45 - 2:30** | **Coalesce Proof & History** | *"To stress-test Coalesce, I ingested an updated sheet with modified records and new personnel."*<br>• Open Transform History showing inserts and in-place updates without duplicate records.<br>• Display `u_employee_test.list` verifying all 12 personnel records with updated profiles. |
+| **2:30 - 3:00** | **Executive Dashboard & Wrap-Up** | *"Manikandan consolidated our workforce data into business intelligence visualizations."*<br>• Open `Employee Analytics Dashboards` displaying the Department Pie Chart, Location Bar Chart, and List Report.<br>• Conclude presentation and thank evaluators. |
+
+---
+
+## ✅ Quality Assurance & Verification Checklist
+
+- [x] All team members accepted SkillWallet invitations; Team Lead unlocked Kanban board.
+- [x] Baseline dataset [`dataset/Sample Spreadsheet.xlsx`](dataset/Sample%20Spreadsheet.xlsx) authored with 10 records.
+- [x] Target table `u_employee_test` created with 5 custom string columns.
+- [x] Form view configured placing all 5 custom fields cleanly.
+- [x] Staging table `u_employee_import` created and loaded via Load Data.
+- [x] Transform Map configured with Auto Map and Mapping Assist (`u_first_name` ➔ `u_employee_name`).
+- [x] Initial transform completed with 10 Inserts and 0 Errors.
+- [x] `u_employee_id` set to `Coalesce = true`.
+- [x] Stress-test dataset ingested: verified inserts and in-place updates.
+- [x] 3 Analytics Reports configured (Department Pie Chart, Location Bar Chart, List Report).
+- [x] Executive Dashboard `Employee Analytics Dashboards` created with all 3 widgets embedded.
+- [x] All 9 SkillWallet stories transitioned to `UNDER REVIEW`.
+- [x] Git repository pushed with datasets, documentation, and screenshots.
+
+---
+
 ## 🔗 Project Resources & References
 
 | Resource | Link |
 | :--- | :--- |
+| 📹 **Project Demo Video (Loom / YouTube)** | [Project Demo Video Walkthrough (Placeholder)](https://youtu.be/placeholder) |
 | 💻 **GitHub Repository** | [mathesh-gdev/import-data-using-transform-maps-spreadsheet](https://github.com/mathesh-gdev/import-data-using-transform-maps-spreadsheet) |
 | 📊 **Source Dataset (Updated - 12 Rows)** | [dataset/Sample Spreadsheet.xlsx](dataset/Sample%20Spreadsheet.xlsx) |
 
