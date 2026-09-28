@@ -1,17 +1,19 @@
-# Screenshots Checklist for ServiceNow Project Submission:
-# Milestone 1:
-# - 01_custom_table_schema.png            (Target table u_employee_test dictionary columns)
-# - 02_form_layout_fields.png             (Form designer/view with all 5 custom fields)
+# Screenshots Inventory for ServiceNow Project:
+# Milestone 1 (Foundation & Target Schema):
+# - 01_custom_table_schema.png             (Target table u_employee_test dictionary columns)
+# - 02_form_layout_fields.png              (Form designer/view with all 5 custom fields)
 #
-# Milestone 2:
-# - 03_load_data_import_set.png           (Load Data complete screen with 10 records)
-# - 04_transform_map_field_mapping.png    (Transform map field maps & mapping assist)
+# Milestone 2 (Staging & Field Mapping):
+# - 03_load_data_import_set.png            (Load Data complete screen with initial records)
+# - 04_transform_map_field_mapping.png     (Transform map field maps & mapping assist)
 #
-# Milestone 3:
-# - 05_transform_execution_complete.png   (Initial transform execution: 10 inserts, 0 errors)
-# - 06_target_table_records_verified.png  (Target table u_employee_test.list with 10 records)
-# - 07_transform_map_coalesce.png         (Field Map showing u_employee_id Coalesce = true)
-# - 08_coalesce_update_transform_history.png (Transform history: 2 inserts, 2 updates)
+# Milestone 3 (Execution, Coalesce & Stress Validation):
+# - 05_transform_execution_complete.png    (Initial transform execution: 10 inserts, 0 errors)
+# - 06_target_table_records_verified.png   (Initial target table u_employee_test.list verification)
+# - 07_coalesce_enabled.png                (Field Map showing u_employee_id Coalesce = true)
+# - 08_new_data_import_loaded.png          (Load Data confirmation for updated spreadsheet)
+# - 09_coalesce_transform_results.png      (Coalesce transform execution metrics)
+# - 10_updated_target_records_verified.png (Final target table list with 12 verified records)
 #
-# Milestone 4:
-# - 09_employee_analytics_dashboard.png   (Executive dashboard with 3 embedded widgets)
+# Milestone 4 (Analytics Suite & Executive Dashboard - Upcoming):
+# - 11_employee_analytics_dashboard.png    (Executive dashboard with 3 embedded reports)
