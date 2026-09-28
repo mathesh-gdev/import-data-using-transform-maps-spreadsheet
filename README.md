@@ -252,7 +252,5 @@ flowchart TD
 | :--- | :--- |
 | 💻 **GitHub Repository** | [mathesh-gdev/import-data-using-transform-maps-spreadsheet](https://github.com/mathesh-gdev/import-data-using-transform-maps-spreadsheet) |
 | 📊 **Source Dataset (Updated - 12 Rows)** | [dataset/Sample Spreadsheet.xlsx](dataset/Sample%20Spreadsheet.xlsx) |
-| 📘 **Project Playbook Guide** | [ServiceNow_Transform_Maps_Project_Playbook.docx](ServiceNow_Transform_Maps_Project_Playbook.docx) |
-
 ---
 *Created for the **Naan Mudhalvan - SkillWallet** Initiative \| ServiceNow System Administrator Track*
