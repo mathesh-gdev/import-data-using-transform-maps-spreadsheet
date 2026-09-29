@@ -157,7 +157,7 @@ flowchart TD
 
 | Source Field (`u_employee_import`) | Target Field (`u_employee_test`) | Mapping Method | Initial Coalesce |
 | :--- | :--- | :--- | :--- |
-| `u_employee_id` | `u_employee_id` | Auto Map Matching Fields | False |
+| `u_employee_id` | `u_employee_id` | Auto Map Matching Fields | True |
 | `u_first_name` | `u_employee_name` | Mapping Assist | False |
 | `u_email` | `u_email` | Auto Map Matching Fields | False |
 | `u_department` | `u_department` | Auto Map Matching Fields | False |
@@ -281,8 +281,9 @@ This checklist summarizes the deliverables completed for evaluation:
 
 | Deliverable | Link |
 | :--- | :--- |
+|Demo Video Link | https://drive.google.com/drive/folders/1bMcr2BSEFwlKgcGkO9LPeMpQzSlW_1Hw?usp=sharing |
 | GitHub Repository | [GitHub Repository](https://github.com/mathesh-gdev/import-data-using-transform-maps-spreadsheet) |
 | Source Dataset | [dataset/Sample Spreadsheet.xlsx](dataset/Sample%20Spreadsheet.xlsx) |
 
 ---
-*Naan Mudhalvan - SkillWallet Project Submission | ServiceNow System Administrator Track*
+*TN SKILL - SkillWallet Project Submission | ServiceNow System Administrator Track*
